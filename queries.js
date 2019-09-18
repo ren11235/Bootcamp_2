@@ -35,10 +35,14 @@ var removeCable = function() {
    */
 };
 var updatePhelpsLab = function() {
-  Listing.findOneAndUpdate({name: 'Phelps Laboratory'},{address: '1953 Museum Rd, Gainesville, Fl 32603'}, function(err, building){
+ Listing.find({name: 'Phelps Laboratory'}), function(err, building){
     if(err) throw err;
+    building.address = '1953 Museum Rd, Gainesville, Fl 32603';
+    building.save(function(err){
+      if(err) throw err;
+    })
     console.log(building);
-  })
+  
   /*
     Phelps Lab address is incorrect. Find the listing, update it, and then 
     log the updated document to the console. 
