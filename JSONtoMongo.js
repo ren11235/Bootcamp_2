@@ -28,7 +28,6 @@ fs.readFile("listings.json", 'utf8', function(err, data){
     });
     temp.save(function(err){
       if(err) throw err;
-      console.log("Saved successfully!");
     })
 
  })
